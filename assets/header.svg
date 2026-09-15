@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 190" width="820" height="190">
+  <defs>
+    <style>
+      @keyframes float {
+        0%,100% { transform:translateY(0px); filter:drop-shadow(0 4px 10px rgba(16,185,129,0.1)) drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
+        50%      { transform:translateY(-13px); filter:drop-shadow(0 22px 32px rgba(16,185,129,0.22)) drop-shadow(0 14px 22px rgba(0,0,0,0.7)); }
+      }
+      @keyframes pulse-dot {
+        0%,100% { r:4.5; opacity:0.8; }
+        50%      { r:6.5; opacity:1; }
+      }
+      @keyframes spin-ring {
+        from { transform:rotate(0deg); }
+        to   { transform:rotate(360deg); }
+      }
+      @keyframes breathe {
+        0%,100% { opacity:0.08; }
+        50%      { opacity:0.22; }
+      }
+      .float-group { animation:float 5.8s ease-in-out infinite; transform-origin:350px 95px; }
+      .live-dot    { animation:pulse-dot 2s ease-in-out infinite; }
+      .spin-ring   { animation:spin-ring 22s linear infinite; transform-origin:750px 95px; }
+      .breathe-a   { animation:breathe 3.5s ease-in-out infinite; }
+      .breathe-b   { animation:breathe 3.5s ease-in-out infinite 1.2s; }
+    </style>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="820" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#07070f"/>
+      <stop offset="100%" stop-color="#0b1524"/>
+    </linearGradient>
+    <linearGradient id="nameGrad" x1="68" y1="0" x2="540" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#f8fafc"/>
+      <stop offset="60%"  stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="68" y1="0" x2="460" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#10b981"/>
+      <stop offset="65%"  stop-color="#3b82f6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </linearGradient>
+
+    <pattern id="dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="0.7" fill="#ffffff" fill-opacity="0.042"/>
+    </pattern>
+
+    <filter id="glow-green">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="190" fill="url(#bg)"/>
+  <rect width="820" height="190" fill="url(#dots)"/>
+
+  <!-- Right geometric depth rings -->
+  <g transform="translate(750,95)">
+    <circle class="spin-ring" r="118" fill="none" stroke="#10b981" stroke-width="0.55" stroke-dasharray="3.5 9" opacity="0.13"/>
+    <circle class="breathe-a" r="90"  fill="none" stroke="#3b82f6" stroke-width="0.75"/>
+    <circle class="breathe-b" r="62"  fill="none" stroke="#10b981" stroke-width="0.75"/>
+    <circle r="36" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.1"/>
+    <circle r="15" fill="none" stroke="#10b981" stroke-width="0.6" opacity="0.18"/>
+    <circle r="4"  fill="#10b981" fill-opacity="0.55" filter="url(#glow-green)"/>
+    <line x1="-118" y1="0" x2="118" y2="0" stroke="#10b981" stroke-width="0.4" opacity="0.1"/>
+    <line x1="0" y1="-118" x2="0" y2="118" stroke="#10b981" stroke-width="0.4" opacity="0.1"/>
+  </g>
+
+  <!-- Left vertical accent bar -->
+  <rect x="50" y="40" width="2" height="110" fill="#10b981" rx="1" opacity="0.88"/>
+
+  <!-- Floating group: name + rule + subtitle -->
+  <g class="float-group">
+    <text x="68" y="102"
+      font-family="'Segoe UI','Inter',system-ui,-apple-system,sans-serif"
+      font-size="53" font-weight="700"
+      fill="url(#nameGrad)"
+      letter-spacing="-1.8">SARVESH P</text>
+
+    <rect x="68" y="114" width="410" height="1.5" fill="url(#lineGrad)"/>
+
+    <text x="68" y="137"
+      font-family="'Segoe UI','Inter',system-ui,sans-serif"
+      font-size="12.5" font-weight="400"
+      fill="#475569"
+      letter-spacing="4.2">FULL-STACK  ·  AI SYSTEMS  ·  SAAS BUILDER</text>
+  </g>
+
+  <!-- Status: stays grounded while name floats -->
+  <circle class="live-dot" cx="68" cy="166" r="4.5" fill="#10b981" filter="url(#glow-green)"/>
+  <text x="81" y="171"
+    font-family="'Segoe UI','Inter',system-ui,sans-serif"
+    font-size="12.5" font-weight="500"
+    fill="#6ee7b7">Active &#183; Remote @ Bright Pathways PTE LTD, Singapore</text>
+</svg>
