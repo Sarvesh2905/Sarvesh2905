@@ -27,12 +27,10 @@ CELL_H = ART_H / ROWS
 
 
 def prepare(image: Image.Image) -> Image.Image:
-    """Crop tightly around Sarvesh and suppress the busy background."""
+    """Crop the headshot around Sarvesh and boost its terminal contrast."""
     w, h = image.size
-    # Coordinates are proportions so regenerating works if the source is resized.
-    # The source is a full-body travel photo; a closer head-and-torso crop
-    # reads much more clearly once reduced to terminal characters.
-    crop = image.crop((int(w * 0.30), int(h * 0.42), int(w * 0.50), int(h * 0.62)))
+    # Proportional coordinates keep the crop stable if the source is resized.
+    crop = image.crop((int(w * 0.18), int(h * 0.24), int(w * 0.82), h))
     # Terminal glyphs are taller than they are wide, so this intentionally
     # compresses the portrait vertically before the font restores its shape.
     crop = crop.resize((COLS, ROWS), Image.Resampling.LANCZOS).convert("L")
