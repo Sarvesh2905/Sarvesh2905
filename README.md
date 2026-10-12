@@ -10,7 +10,7 @@
 
 <table>
 <tr>
-<td valign="top"><img src="./sarvesh-ascii-v2.svg" width="420" alt="Animated ASCII portrait of Sarvesh P" /></td>
+<td valign="top"><img src="./sarvesh-ascii-v3.svg" width="420" alt="Animated ASCII portrait of Sarvesh P" /></td>
 <td valign="top"><img src="./profile-card.svg" width="420" alt="Terminal profile card for Sarvesh P" /></td>
 </tr>
 </table>

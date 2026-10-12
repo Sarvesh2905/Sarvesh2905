@@ -11,7 +11,7 @@ from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "assets" / "sarvesh.jpg"
-OUTPUT = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "sarvesh-ascii-v2.svg"
+OUTPUT = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "sarvesh-ascii-v3.svg"
 
 COLS = int(os.environ.get("ASCII_COLS", "132"))
 ROWS = round(COLS * 8 / 15)
@@ -30,7 +30,7 @@ def prepare(image: Image.Image) -> Image.Image:
     """Crop the headshot around Sarvesh and boost its terminal contrast."""
     w, h = image.size
     # Proportional coordinates keep the crop stable if the source is resized.
-    crop = image.crop((int(w * 0.18), int(h * 0.24), int(w * 0.82), h))
+    crop = image.crop((int(w * 0.16), int(h * 0.03), int(w * 0.84), int(h * 0.90)))
     # Terminal glyphs are taller than they are wide, so this intentionally
     # compresses the portrait vertically before the font restores its shape.
     crop = crop.resize((COLS, ROWS), Image.Resampling.LANCZOS).convert("L")
