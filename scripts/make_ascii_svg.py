@@ -11,7 +11,7 @@ from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "assets" / "sarvesh.jpg"
-OUTPUT = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "sarvesh-ascii.svg"
+OUTPUT = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "sarvesh-ascii-v2.svg"
 
 COLS = int(os.environ.get("ASCII_COLS", "132"))
 ROWS = round(COLS * 8 / 15)
